@@ -1,0 +1,21 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+libgpg-error-dev
+libassuan-dev
+akonadi-dev
+boost-dev
+gpgme-dev
+gpgme-extras
+grantlee-dev
+grantleetheme-dev
+kmime-dev
+knotifyconfig-dev
+kontactinterface-dev
+ktexteditor-dev
+libassuan-dev
+libgpg-error-dev
+libkdepim-dev
+libkleo-dev
+messagelib-dev
+pimcommon-dev
+qtwebengine-dev
