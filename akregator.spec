@@ -6,7 +6,7 @@
 #
 Name     : akregator
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/akregator-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/akregator-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/akregator-18.08.0.tar.xz.sig
@@ -123,7 +123,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535298962
+export SOURCE_DATE_EPOCH=1535424480
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -131,7 +131,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535298962
+export SOURCE_DATE_EPOCH=1535424480
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/akregator
 cp COPYING %{buildroot}/usr/share/doc/akregator/COPYING
@@ -184,6 +184,8 @@ popd
 /usr/share/kservices5/kontact/akregatorplugin.desktop
 /usr/share/kservicetypes5/akregator_plugin.desktop
 /usr/share/metainfo/org.kde.akregator.appdata.xml
+/usr/share/xdg/akregator.categories
+/usr/share/xdg/akregator.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
