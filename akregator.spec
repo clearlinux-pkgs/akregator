@@ -5,19 +5,19 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akregator
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/akregator-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/akregator-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/akregator-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/akregator-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/akregator-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/akregator-18.12.2.tar.xz.sig
+Summary  : A Feed Reader by KDE
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1 MIT
-Requires: akregator-bin
-Requires: akregator-lib
-Requires: akregator-data
-Requires: akregator-license
-Requires: akregator-locales
+Requires: akregator-bin = %{version}-%{release}
+Requires: akregator-data = %{version}-%{release}
+Requires: akregator-lib = %{version}-%{release}
+Requires: akregator-license = %{version}-%{release}
+Requires: akregator-locales = %{version}-%{release}
 BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
@@ -41,7 +41,7 @@ BuildRequires : libkdepim-dev
 BuildRequires : libkleo-dev
 BuildRequires : messagelib-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtwebengine-dev
 BuildRequires : syndication-dev
 
@@ -54,8 +54,8 @@ Join developer mailing list: <kde-pim@kde.org>
 %package bin
 Summary: bin components for the akregator package.
 Group: Binaries
-Requires: akregator-data
-Requires: akregator-license
+Requires: akregator-data = %{version}-%{release}
+Requires: akregator-license = %{version}-%{release}
 
 %description bin
 bin components for the akregator package.
@@ -72,10 +72,10 @@ data components for the akregator package.
 %package dev
 Summary: dev components for the akregator package.
 Group: Development
-Requires: akregator-lib
-Requires: akregator-bin
-Requires: akregator-data
-Provides: akregator-devel
+Requires: akregator-lib = %{version}-%{release}
+Requires: akregator-bin = %{version}-%{release}
+Requires: akregator-data = %{version}-%{release}
+Provides: akregator-devel = %{version}-%{release}
 
 %description dev
 dev components for the akregator package.
@@ -92,8 +92,8 @@ doc components for the akregator package.
 %package lib
 Summary: lib components for the akregator package.
 Group: Libraries
-Requires: akregator-data
-Requires: akregator-license
+Requires: akregator-data = %{version}-%{release}
+Requires: akregator-license = %{version}-%{release}
 
 %description lib
 lib components for the akregator package.
@@ -116,28 +116,28 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-18.08.0
+%setup -q -n akregator-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535424480
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549923164
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535424480
+export SOURCE_DATE_EPOCH=1549923164
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/akregator
-cp COPYING %{buildroot}/usr/share/doc/akregator/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/akregator/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/akregator/COPYING.LIB
-cp plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/doc/akregator/plugins_mk4storage_metakit_license.terms
+mkdir -p %{buildroot}/usr/share/package-licenses/akregator
+cp COPYING %{buildroot}/usr/share/package-licenses/akregator/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/akregator/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/akregator/COPYING.LIB
+cp plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/plugins_mk4storage_metakit_license.terms
 pushd clr-build
 %make_install
 popd
@@ -164,10 +164,10 @@ popd
 /usr/share/icons/hicolor/16x16/apps/akregator.png
 /usr/share/icons/hicolor/16x16/apps/akregator_empty.png
 /usr/share/icons/hicolor/22x22/apps/akregator.png
-/usr/share/icons/hicolor/256x256/apps/akregator.png
 /usr/share/icons/hicolor/32x32/apps/akregator.png
 /usr/share/icons/hicolor/48x48/apps/akregator.png
 /usr/share/icons/hicolor/64x64/apps/akregator.png
+/usr/share/icons/hicolor/scalable/apps/akregator.svg
 /usr/share/kconf_update/akregator-15.08-kickoff.sh
 /usr/share/kconf_update/akregator.upd
 /usr/share/knotifications5/akregator.notifyrc
@@ -271,9 +271,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.9.0
+/usr/lib64/libakregatorinterfaces.so.5.10.2
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.9.0
+/usr/lib64/libakregatorprivate.so.5.10.2
 /usr/lib64/qt5/plugins/akregator_config_advanced.so
 /usr/lib64/qt5/plugins/akregator_config_appearance.so
 /usr/lib64/qt5/plugins/akregator_config_archive.so
@@ -285,11 +285,11 @@ popd
 /usr/lib64/qt5/plugins/kontact_akregatorplugin.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/akregator/COPYING
-/usr/share/doc/akregator/COPYING.DOC
-/usr/share/doc/akregator/COPYING.LIB
-/usr/share/doc/akregator/plugins_mk4storage_metakit_license.terms
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/akregator/COPYING
+/usr/share/package-licenses/akregator/COPYING.DOC
+/usr/share/package-licenses/akregator/COPYING.LIB
+/usr/share/package-licenses/akregator/plugins_mk4storage_metakit_license.terms
 
 %files locales -f akregator.lang
 %defattr(-,root,root,-)
