@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akregator
-Version  : 19.04.0
-Release  : 6
-URL      : https://download.kde.org/stable/applications/19.04.0/src/akregator-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/akregator-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/akregator-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.1/src/akregator-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/akregator-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/akregator-19.04.1.tar.xz.sig
 Summary  : A Feed Reader by KDE
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1 MIT
@@ -77,6 +77,7 @@ Requires: akregator-bin = %{version}-%{release}
 Requires: akregator-data = %{version}-%{release}
 Provides: akregator-devel = %{version}-%{release}
 Requires: akregator = %{version}-%{release}
+Requires: akregator = %{version}-%{release}
 
 %description dev
 dev components for the akregator package.
@@ -117,14 +118,14 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-19.04.0
+%setup -q -n akregator-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556993261
+export SOURCE_DATE_EPOCH=1557507047
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -139,7 +140,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1556993261
+export SOURCE_DATE_EPOCH=1557507047
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
 cp COPYING %{buildroot}/usr/share/package-licenses/akregator/COPYING
@@ -279,9 +280,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.11.0
+/usr/lib64/libakregatorinterfaces.so.5.11.1
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.11.0
+/usr/lib64/libakregatorprivate.so.5.11.1
 /usr/lib64/qt5/plugins/akregator_config_advanced.so
 /usr/lib64/qt5/plugins/akregator_config_appearance.so
 /usr/lib64/qt5/plugins/akregator_config_archive.so
