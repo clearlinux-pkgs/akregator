@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akregator
-Version  : 19.12.0
-Release  : 16
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/akregator-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/akregator-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/akregator-19.12.0.tar.xz.sig
-Summary  : A Feed Reader by KDE
+Version  : 19.12.1
+Release  : 17
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/akregator-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/akregator-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/akregator-19.12.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1 MIT
 Requires: akregator-bin = %{version}-%{release}
@@ -29,7 +29,6 @@ BuildRequires : gpgme-extras
 BuildRequires : grantlee-dev
 BuildRequires : grantleetheme-dev
 BuildRequires : kcontacts-dev
-BuildRequires : kimap-dev
 BuildRequires : kmime-dev
 BuildRequires : knotifyconfig-dev
 BuildRequires : kontactinterface-dev
@@ -77,7 +76,6 @@ Requires: akregator-bin = %{version}-%{release}
 Requires: akregator-data = %{version}-%{release}
 Provides: akregator-devel = %{version}-%{release}
 Requires: akregator = %{version}-%{release}
-Requires: akregator = %{version}-%{release}
 
 %description dev
 dev components for the akregator package.
@@ -118,18 +116,17 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-19.12.0
-cd %{_builddir}/akregator-19.12.0
+%setup -q -n akregator-19.12.1
+cd %{_builddir}/akregator-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576608654
+export SOURCE_DATE_EPOCH=1578955573
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -143,13 +140,13 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576608654
+export SOURCE_DATE_EPOCH=1578955573
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
-cp %{_builddir}/akregator-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/akregator/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/akregator-19.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/akregator/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/akregator-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/akregator/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/akregator-19.12.0/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
+cp %{_builddir}/akregator-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/akregator/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/akregator-19.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/akregator/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/akregator-19.12.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/akregator/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/akregator-19.12.1/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
 pushd clr-build
 %make_install
 popd
@@ -283,9 +280,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.13.0
+/usr/lib64/libakregatorinterfaces.so.5.13.1
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.13.0
+/usr/lib64/libakregatorprivate.so.5.13.1
 /usr/lib64/qt5/plugins/akregator_config_advanced.so
 /usr/lib64/qt5/plugins/akregator_config_appearance.so
 /usr/lib64/qt5/plugins/akregator_config_archive.so
