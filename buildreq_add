@@ -1,16 +1,18 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-libgpg-error-dev
-libassuan-dev
+akonadi-contacts-dev
 akonadi-dev
+akonadi-mime-dev
 boost-dev
 gpgme-dev
 gpgme-extras
 grantlee-dev
 grantleetheme-dev
+kcontacts-dev
 kmime-dev
 knotifyconfig-dev
 kontactinterface-dev
+kpimtextedit-dev
 ktexteditor-dev
 libassuan-dev
 libgpg-error-dev
@@ -19,3 +21,4 @@ libkleo-dev
 messagelib-dev
 pimcommon-dev
 qtwebengine-dev
+syndication-dev
