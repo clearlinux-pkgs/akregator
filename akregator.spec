@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akregator
-Version  : 20.04.1
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/20.04.1/src/akregator-20.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.1/src/akregator-20.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.1/src/akregator-20.04.1.tar.xz.sig
+Version  : 20.04.2
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/20.04.2/src/akregator-20.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.2/src/akregator-20.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.2/src/akregator-20.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1 MIT
@@ -123,15 +123,15 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-20.04.1
-cd %{_builddir}/akregator-20.04.1
+%setup -q -n akregator-20.04.2
+cd %{_builddir}/akregator-20.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589927967
+export SOURCE_DATE_EPOCH=1591933354
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -147,13 +147,13 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1589927967
+export SOURCE_DATE_EPOCH=1591933354
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
-cp %{_builddir}/akregator-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/akregator/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/akregator-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/akregator/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/akregator-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/akregator/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/akregator-20.04.1/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
+cp %{_builddir}/akregator-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/akregator/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/akregator-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/akregator/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/akregator-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/akregator/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/akregator-20.04.2/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
 pushd clr-build
 %make_install
 popd
@@ -287,9 +287,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.14.1
+/usr/lib64/libakregatorinterfaces.so.5.14.2
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.14.1
+/usr/lib64/libakregatorprivate.so.5.14.2
 /usr/lib64/qt5/plugins/akregator_config_advanced.so
 /usr/lib64/qt5/plugins/akregator_config_appearance.so
 /usr/lib64/qt5/plugins/akregator_config_archive.so
