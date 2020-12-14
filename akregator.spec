@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akregator
-Version  : 20.08.3
-Release  : 27
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/akregator-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/akregator-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/akregator-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 28
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/akregator-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/akregator-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/akregator-20.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2 GPL-2.0 LGPL-2.1 MIT
+License  : BSD-2-Clause GFDL-1.2 GPL-2.0 LGPL-2.0 MIT
 Requires: akregator-bin = %{version}-%{release}
 Requires: akregator-data = %{version}-%{release}
 Requires: akregator-lib = %{version}-%{release}
@@ -123,15 +123,15 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-20.08.3
-cd %{_builddir}/akregator-20.08.3
+%setup -q -n akregator-20.12.0
+cd %{_builddir}/akregator-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604635644
+export SOURCE_DATE_EPOCH=1607918838
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -147,13 +147,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604635644
+export SOURCE_DATE_EPOCH=1607918838
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
-cp %{_builddir}/akregator-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/akregator/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/akregator-20.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/akregator/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/akregator-20.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/akregator/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/akregator-20.08.3/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
+cp %{_builddir}/akregator-20.12.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/akregator-20.12.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/akregator-20.12.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/akregator-20.12.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/akregator-20.12.0/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
 pushd clr-build
 %make_install
 popd
@@ -284,9 +285,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.15.3
+/usr/lib64/libakregatorinterfaces.so.5.16.0
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.15.3
+/usr/lib64/libakregatorprivate.so.5.16.0
 /usr/lib64/qt5/plugins/akregator_config_advanced.so
 /usr/lib64/qt5/plugins/akregator_config_appearance.so
 /usr/lib64/qt5/plugins/akregator_config_archive.so
@@ -299,10 +300,11 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/akregator/1bd373e4851a93027ba70064bd7dbdc6827147e1
+/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
 /usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
-/usr/share/package-licenses/akregator/7c203dee3a03037da436df03c4b25b659c073976
-/usr/share/package-licenses/akregator/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
+/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f akregator.lang
 %defattr(-,root,root,-)
