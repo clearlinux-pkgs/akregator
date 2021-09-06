@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : akregator
-Version  : 21.04.2
-Release  : 32
-URL      : https://download.kde.org/stable/release-service/21.04.2/src/akregator-21.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.2/src/akregator-21.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.2/src/akregator-21.04.2.tar.xz.sig
+Version  : 21.08.1
+Release  : 33
+URL      : https://download.kde.org/stable/release-service/21.08.1/src/akregator-21.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.1/src/akregator-21.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.1/src/akregator-21.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0 MIT
@@ -33,6 +33,7 @@ BuildRequires : kcmutils-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kcrash-dev
 BuildRequires : kdoctools-dev
+BuildRequires : ki18n-dev
 BuildRequires : kmime-dev
 BuildRequires : knotifications-dev
 BuildRequires : knotifyconfig-dev
@@ -40,6 +41,7 @@ BuildRequires : kontactinterface-dev
 BuildRequires : kparts-dev
 BuildRequires : kpimtextedit-dev
 BuildRequires : ktexteditor-dev
+BuildRequires : ktextwidgets-dev
 BuildRequires : kxmlgui-dev
 BuildRequires : libassuan-dev
 BuildRequires : libgpg-error-dev
@@ -50,7 +52,6 @@ BuildRequires : pimcommon-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtwebengine-dev
 BuildRequires : syndication-dev
-BuildRequires : syntax-highlighting-dev
 
 %description
 Akregator
@@ -74,19 +75,6 @@ Group: Data
 
 %description data
 data components for the akregator package.
-
-
-%package dev
-Summary: dev components for the akregator package.
-Group: Development
-Requires: akregator-lib = %{version}-%{release}
-Requires: akregator-bin = %{version}-%{release}
-Requires: akregator-data = %{version}-%{release}
-Provides: akregator-devel = %{version}-%{release}
-Requires: akregator = %{version}-%{release}
-
-%description dev
-dev components for the akregator package.
 
 
 %package doc
@@ -124,40 +112,40 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-21.04.2
-cd %{_builddir}/akregator-21.04.2
+%setup -q -n akregator-21.08.1
+cd %{_builddir}/akregator-21.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623358801
+export SOURCE_DATE_EPOCH=1630971148
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623358801
+export SOURCE_DATE_EPOCH=1630971148
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
-cp %{_builddir}/akregator-21.04.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/akregator/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/akregator-21.04.2/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/akregator-21.04.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/akregator/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/akregator-21.04.2/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/akregator-21.04.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/akregator-21.04.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/akregator-21.04.2/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
+cp %{_builddir}/akregator-21.08.1/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/akregator/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/akregator-21.08.1/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/akregator-21.08.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/akregator/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/akregator-21.08.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/akregator-21.08.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/akregator-21.08.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/akregator-21.08.1/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
 pushd clr-build
 %make_install
 popd
@@ -198,17 +186,13 @@ popd
 /usr/share/kservices5/akregator_config_browser.desktop
 /usr/share/kservices5/akregator_config_general.desktop
 /usr/share/kservices5/akregator_config_plugins.desktop
+/usr/share/kservices5/akregator_config_security.desktop
 /usr/share/kservices5/akregator_mk4storage_plugin.desktop
-/usr/share/kservices5/feed.protocol
 /usr/share/kservices5/kontact/akregatorplugin.desktop
 /usr/share/kservicetypes5/akregator_plugin.desktop
 /usr/share/metainfo/org.kde.akregator.appdata.xml
 /usr/share/qlogging-categories5/akregator.categories
 /usr/share/qlogging-categories5/akregator.renamecategories
-
-%files dev
-%defattr(-,root,root,-)
-/usr/lib64/libakregatorinterfaces.so
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -288,18 +272,19 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.17.2
+/usr/lib64/libakregatorinterfaces.so.5.18.1
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.17.2
-/usr/lib64/qt5/plugins/akregator_config_advanced.so
-/usr/lib64/qt5/plugins/akregator_config_appearance.so
-/usr/lib64/qt5/plugins/akregator_config_archive.so
-/usr/lib64/qt5/plugins/akregator_config_browser.so
-/usr/lib64/qt5/plugins/akregator_config_general.so
-/usr/lib64/qt5/plugins/akregator_config_plugins.so
+/usr/lib64/libakregatorprivate.so.5.18.1
 /usr/lib64/qt5/plugins/akregator_mk4storage_plugin.so
 /usr/lib64/qt5/plugins/akregatorpart.so
 /usr/lib64/qt5/plugins/kontact5/kontact_akregatorplugin.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_advanced.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_appearance.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_archive.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_browser.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_general.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_plugins.so
+/usr/lib64/qt5/plugins/pim/kcms/akregator/akregator_config_security.so
 
 %files license
 %defattr(0644,root,root,0755)
