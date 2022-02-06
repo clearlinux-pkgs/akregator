@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : akregator
-Version  : 21.12.1
-Release  : 38
-URL      : https://download.kde.org/stable/release-service/21.12.1/src/akregator-21.12.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.1/src/akregator-21.12.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.1/src/akregator-21.12.1.tar.xz.sig
+Version  : 21.12.2
+Release  : 39
+URL      : https://download.kde.org/stable/release-service/21.12.2/src/akregator-21.12.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.12.2/src/akregator-21.12.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.12.2/src/akregator-21.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0 MIT
@@ -112,15 +112,15 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-21.12.1
-cd %{_builddir}/akregator-21.12.1
+%setup -q -n akregator-21.12.2
+cd %{_builddir}/akregator-21.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642020093
+export SOURCE_DATE_EPOCH=1644179699
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -136,16 +136,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1642020093
+export SOURCE_DATE_EPOCH=1644179699
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
-cp %{_builddir}/akregator-21.12.1/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/akregator/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/akregator-21.12.1/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/akregator-21.12.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/akregator/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/akregator-21.12.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/akregator-21.12.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/akregator-21.12.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/akregator-21.12.1/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
+cp %{_builddir}/akregator-21.12.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/akregator/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/akregator-21.12.2/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/akregator-21.12.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/akregator/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/akregator-21.12.2/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/akregator-21.12.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/akregator-21.12.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/akregator-21.12.2/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
 pushd clr-build
 %make_install
 popd
@@ -246,6 +246,8 @@ popd
 /usr/share/doc/HTML/pt/akregator/index.docbook
 /usr/share/doc/HTML/pt_BR/akregator/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/akregator/index.docbook
+/usr/share/doc/HTML/ru/akregator/index.cache.bz2
+/usr/share/doc/HTML/ru/akregator/index.docbook
 /usr/share/doc/HTML/sv/akregator/index.cache.bz2
 /usr/share/doc/HTML/sv/akregator/index.docbook
 /usr/share/doc/HTML/uk/akregator/add-feed.png
@@ -269,9 +271,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.19.1
+/usr/lib64/libakregatorinterfaces.so.5.19.2
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.19.1
+/usr/lib64/libakregatorprivate.so.5.19.2
 /usr/lib64/qt5/plugins/akregator_mk4storage_plugin.so
 /usr/lib64/qt5/plugins/akregatorpart.so
 /usr/lib64/qt5/plugins/kontact5/kontact_akregatorplugin.so
