@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : akregator
-Version  : 22.04.0
-Release  : 41
-URL      : https://download.kde.org/stable/release-service/22.04.0/src/akregator-22.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.0/src/akregator-22.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.0/src/akregator-22.04.0.tar.xz.sig
+Version  : 22.04.1
+Release  : 42
+URL      : https://download.kde.org/stable/release-service/22.04.1/src/akregator-22.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.1/src/akregator-22.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.1/src/akregator-22.04.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0 MIT
@@ -111,15 +111,15 @@ locales components for the akregator package.
 
 
 %prep
-%setup -q -n akregator-22.04.0
-cd %{_builddir}/akregator-22.04.0
+%setup -q -n akregator-22.04.1
+cd %{_builddir}/akregator-22.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650859890
+export SOURCE_DATE_EPOCH=1652714117
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -135,18 +135,18 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1650859890
+export SOURCE_DATE_EPOCH=1652714117
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
-cp %{_builddir}/akregator-22.04.0/.krazy.license %{buildroot}/usr/share/package-licenses/akregator/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
-cp %{_builddir}/akregator-22.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/akregator/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
-cp %{_builddir}/akregator-22.04.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/akregator-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/akregator-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/akregator/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/akregator-22.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/akregator-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/akregator-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/akregator-22.04.0/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
+cp %{_builddir}/akregator-22.04.1/.krazy.license %{buildroot}/usr/share/package-licenses/akregator/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+cp %{_builddir}/akregator-22.04.1/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/akregator/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+cp %{_builddir}/akregator-22.04.1/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/akregator-22.04.1/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/akregator/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/akregator-22.04.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/akregator/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/akregator-22.04.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/akregator-22.04.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/akregator-22.04.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/akregator/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/akregator-22.04.1/plugins/mk4storage/metakit/license.terms %{buildroot}/usr/share/package-licenses/akregator/4f42a9e708f812e067f2d87a77362c80f5f9c2bb
 pushd clr-build
 %make_install
 popd
@@ -262,9 +262,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libakregatorinterfaces.so.5
-/usr/lib64/libakregatorinterfaces.so.5.20.0
+/usr/lib64/libakregatorinterfaces.so.5.20.1
 /usr/lib64/libakregatorprivate.so.5
-/usr/lib64/libakregatorprivate.so.5.20.0
+/usr/lib64/libakregatorprivate.so.5.20.1
 /usr/lib64/qt5/plugins/akregator_mk4storage_plugin.so
 /usr/lib64/qt5/plugins/akregatorpart.so
 /usr/lib64/qt5/plugins/kontact5/kontact_akregatorplugin.so
