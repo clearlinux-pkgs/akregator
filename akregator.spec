@@ -6,7 +6,7 @@
 #
 Name     : akregator
 Version  : 22.12.2
-Release  : 51
+Release  : 52
 URL      : https://download.kde.org/stable/release-service/22.12.2/src/akregator-22.12.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.2/src/akregator-22.12.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.2/src/akregator-22.12.2.tar.xz.sig
@@ -123,7 +123,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675696609
+export SOURCE_DATE_EPOCH=1676827652
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -139,7 +139,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1675696609
+export SOURCE_DATE_EPOCH=1676827652
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akregator
 cp %{_builddir}/akregator-%{version}/.krazy.license %{buildroot}/usr/share/package-licenses/akregator/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
