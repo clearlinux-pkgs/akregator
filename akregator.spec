@@ -6,7 +6,7 @@
 #
 Name     : akregator
 Version  : 22.12.3
-Release  : 53
+Release  : 54
 URL      : https://download.kde.org/stable/release-service/22.12.3/src/akregator-22.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.3/src/akregator-22.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.3/src/akregator-22.12.3.tar.xz.sig
