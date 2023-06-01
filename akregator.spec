@@ -7,7 +7,7 @@
 #
 Name     : akregator
 Version  : 23.04.1
-Release  : 60
+Release  : 61
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/akregator-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/akregator-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/akregator-23.04.1.tar.xz.sig
