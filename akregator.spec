@@ -9,7 +9,7 @@
 #
 Name     : akregator
 Version  : 25.04.0
-Release  : 115
+Release  : 116
 URL      : https://download.kde.org/stable/release-service/25.04.0/src/akregator-25.04.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/25.04.0/src/akregator-25.04.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/25.04.0/src/akregator-25.04.0.tar.xz.sig
